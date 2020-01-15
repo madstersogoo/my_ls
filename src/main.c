@@ -19,9 +19,12 @@ int main(int argc, char **argv)
 
 	while ( (sd = readdir(dir)) != NULL )
 	{
-		my_putstr(sd->d_name);
-		my_putchar('\n');
+		if (sd->d_name[0] != '.'){
+			my_putstr(sd->d_name);
+			my_putstr("  ");
+		}
 	}
+	my_putchar('\n');
 
 	closedir(dir);
 
