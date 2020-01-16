@@ -1,3 +1,10 @@
+##
+## EPITECH PROJECT, 2019
+## makefile
+## File description:
+## makefile
+##
+
 NAME	= my_ls
 
 CC	= gcc
@@ -8,8 +15,11 @@ SRCS	= ./lib/my_put_nbr.c \
 	  ./lib/my_putchar.c \
 	  ./lib/my_putstr.c \
 	  ./lib/my_strcpy.c \
+	  ./lib/my_strdup.c \
+	  ./lib/my_strlen.c \
 	  ./lib/my_strligne.c \
-	  ./src/main.c 
+	  ./src/ls.c \
+	  ./src/main.c
 
 OBJS	= $(SRCS:.c=.o)
 

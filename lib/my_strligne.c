@@ -9,10 +9,10 @@
 
 int my_strligne(char const *str)
 {
-  int i = 0;
-  while(str[i] != '\n')
-    {
-      i = i + 1;
-    }
-  return(i);
+        int i = 0;
+        while (str[i] != '\n')
+        {
+                i = i + 1;
+        }
+        return (i);
 }
