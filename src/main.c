@@ -55,4 +55,17 @@ void trie2(int argc, char **argv)
         else
             lsla(opendir(argv[2]));
     }
+    else
+	    trie3(argc, argv);
 }
+
+void trie3(int argc, char **argv)
+{
+	if (argv[1][0] == '-' && argv[1][1] == 'R') {
+		if (argc == 2)
+			lsr(opendir("./"));
+		else
+			lsr(opendir(argv[2]));
+	}
+}
+
