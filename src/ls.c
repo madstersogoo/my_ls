@@ -16,10 +16,9 @@ int lsa (DIR *dir)
 {
     struct dirent *sd;
 
-    while ( (sd = readdir(dir)) != NULL )
-    {
-        my_putstr(sd->d_name);
-        my_putstr("  ");
+    while ( (sd = readdir(dir)) != NULL ) {
+            my_putstr(sd->d_name);
+            my_putstr("  ");
     }
     my_putchar('\n');
     closedir(dir);
@@ -30,10 +29,9 @@ int lsla (DIR *dir)
 {
     struct dirent *sd;
 
-    while ( (sd = readdir(dir)) != NULL )
-    {
-        my_putstr(sd->d_name);
-        my_putchar('\n');
+    while ( (sd = readdir(dir)) != NULL ) {
+            my_putstr(sd->d_name);
+            my_putchar('\n');
     }
     closedir(dir);
     return (0);
@@ -44,12 +42,11 @@ int ls (DIR *dir)
     struct dirent *sd;
     struct stat buf;
 
-    while ( (sd = readdir(dir)) != NULL )
-    {
-        if (sd->d_name[0] != '.'){
-            my_putstr(sd->d_name);
-            my_putstr("  ");
-        }
+    while ( (sd = readdir(dir)) != NULL ) {
+            if (sd->d_name[0] != '.'){
+                    my_putstr(sd->d_name);
+                    my_putstr("  ");
+            }
     }
     my_putchar('\n');
     closedir(dir);
@@ -60,12 +57,11 @@ int lsl (DIR *dir)
 {
     struct dirent *sd;
 
-    while ( (sd = readdir(dir)) != NULL )
-    {
-        if (sd->d_name[0] != '.'){
-            my_putstr(sd->d_name);
-            my_putchar('\n');
-        }
+    while ( (sd = readdir(dir)) != NULL ) {
+            if (sd->d_name[0] != '.'){
+                    my_putstr(sd->d_name);
+                    my_putchar('\n');
+            }
     }
     closedir(dir);
     return (0);
@@ -73,24 +69,24 @@ int lsl (DIR *dir)
 
 int lsr (DIR *dir)
 {
-	struct dirent *sd;
-	int i = 0;
+    struct dirent *sd;
+    int i = 0;
 
-	my_putstr(".:");
-	my_putchar('\n');
-	ls(opendir("./"));
-	my_putchar('\n');
-	while ( (sd = readdir(dir)) != NULL ) {
-		if (sd->d_name[0] != '.') {
-			i = (is_regular_file(sd->d_name));
-			if (i == 0) {
-				my_putstr("./");
-				my_putstr(sd->d_name);
-				my_putchar(':');
-				my_putchar('\n');
-				ls(opendir(sd->d_name));
-				my_putchar('\n');
-			}
-		}
-	}
+    my_putstr(".:");
+    my_putchar('\n');
+    ls(opendir("./"));
+    my_putchar('\n');
+    while ( (sd = readdir(dir)) != NULL ) {
+            if (sd->d_name[0] != '.') {
+                    i = (is_regular_file(sd->d_name));
+                    if (i == 0) {
+                            my_putstr("./");
+                            my_putstr(sd->d_name);
+                            my_putchar(':');
+                            my_putchar('\n');
+                            ls(opendir(sd->d_name));
+                            my_putchar('\n');
+                    }
+            }
+    }
 }

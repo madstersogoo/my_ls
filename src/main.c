@@ -16,15 +16,15 @@ int main(int argc, char **argv)
         if (argv[1][0] == '-')
             trie(argc, argv);
         if (argv[1][0] != '-') {
-		if (isDirectoryExists(argv[1]) == 1)
-			ls(opendir(argv[1]));
-		else {
-			my_putstr("my_ls: impossible d'accéder a '");
-			my_putstr(argv[1]);
-			my_putstr("': Aucun fichier ou dossier de ce type\n");
-			return (0);
-		}
-	}
+            if (isDirectoryExists(argv[1]) == 1)
+                    ls(opendir(argv[1]));
+            else {
+                    my_putstr("my_ls: impossible d'accéder a '");
+                    my_putstr(argv[1]);
+                    my_putstr("': Aucun fichier ou dossier de ce type\n");
+                    return (0);
+            }
+        }
     }
     else
         ls(opendir("./"));
@@ -64,16 +64,16 @@ void trie2(int argc, char **argv)
             lsla(opendir(argv[2]));
     }
     else
-	    trie3(argc, argv);
+            trie3(argc, argv);
 }
 
 void trie3(int argc, char **argv)
 {
-	if (argv[1][0] == '-' && argv[1][1] == 'R') {
-		if (argc == 2)
-			lsr(opendir("./"));
-		else
-			lsr(opendir(argv[2]));
-	}
+        if (argv[1][0] == '-' && argv[1][1] == 'R') {
+            if (argc == 2)
+                lsr(opendir("./"));
+            else
+                lsr(opendir(argv[2]));
+    }
 }
 
