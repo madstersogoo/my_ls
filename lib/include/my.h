@@ -25,5 +25,6 @@ int lsl(DIR *dir);
 int lsla(DIR *dir);
 void trie(int argc, char **argv);
 void trie2(int argc, char **argv);
+int isDirectoryExists(const char *path);
 
 #endif

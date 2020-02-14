@@ -15,8 +15,16 @@ int main(int argc, char **argv)
     if (argc != 1){
         if (argv[1][0] == '-')
             trie(argc, argv);
-        if (argv[1][0] != '-')
-            ls(opendir(argv[1]));
+        if (argv[1][0] != '-') {
+		if (isDirectoryExists(argv[1]) == 1)
+			ls(opendir(argv[1]));
+		else {
+			my_putstr("my_ls: impossible d'accéder a '");
+			my_putstr(argv[1]);
+			my_putstr("': Aucun fichier ou dossier de ce type\n");
+			return (0);
+		}
+	}
     }
     else
         ls(opendir("./"));
